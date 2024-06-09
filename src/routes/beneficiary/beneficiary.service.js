@@ -26,7 +26,7 @@ export const fetchBeneficiaries = createAsyncThunk(
     const response = new Promise((resolve) => {
       setTimeout(() => {
         resolve({ data: beneficiariesData });
-      }, 500);
+      }, 100);
     });
     const data = await response;
     return data.data;
@@ -42,7 +42,7 @@ export const addBeneficiaryAsync = createAsyncThunk(
       setTimeout(() => {
         beneficiariesData = [...beneficiariesData, beneficiary];
         resolve({ data: beneficiary });
-      }, 500);
+      }, 100);
     });
     const data = await response;
     return data.data;
@@ -60,7 +60,7 @@ export const deleteBeneficiaryAsync = createAsyncThunk(
         );
         beneficiariesData = [...beneficiaryDataObj];
         resolve({ data: beneficiary });
-      }, 500);
+      }, 100);
     });
     const data = await response;
     return data.data;

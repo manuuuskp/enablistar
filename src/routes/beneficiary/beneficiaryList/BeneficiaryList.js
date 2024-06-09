@@ -9,9 +9,12 @@ import { useBeneficiaryList } from "./hooks/useBeneficiaryList";
 import { FaEdit } from "react-icons/fa";
 import { IoMdEye } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import Toaster from "../../../components/toaster/Toaster";
+import { TOAST_TYPE } from "../../../constants/constants";
 
 const BeneficiaryList = () => {
-  const { beneficiaries, handleRemove } = useBeneficiaryList();
+  const { beneficiaries, showToast, onToastClose, handleRemove } =
+    useBeneficiaryList();
 
   const LoadInput = useCallback(
     ({ row }) => (
@@ -69,6 +72,8 @@ const BeneficiaryList = () => {
     getCoreRowModel: getCoreRowModel(),
   });
 
+  console.log("list");
+
   return (
     <div className="mx-auto p-4">
       <Link
@@ -110,6 +115,16 @@ const BeneficiaryList = () => {
           ))}
         </tbody>
       </table>
+      <div>
+        {showToast && (
+          <Toaster
+            message={"Beneficiary removed successfully"}
+            duration={1}
+            onClose={onToastClose}
+            type={TOAST_TYPE.success}
+          ></Toaster>
+        )}
+      </div>
     </div>
   );
 };
