@@ -48,6 +48,7 @@ export const addBeneficiaryAsync = createAsyncThunk(
   }
 );
 
+// Async thunk to update a beneficiary
 export const updateBeneficiaryAsync = createAsyncThunk(
   "beneficiaries/updateBeneficiaryAsync",
   async (beneficiary) => {
@@ -71,6 +72,7 @@ export const updateBeneficiaryAsync = createAsyncThunk(
   }
 );
 
+// Async thunk to delete a beneficiary
 export const deleteBeneficiaryAsync = createAsyncThunk(
   "beneficiaries/deleteBeneficiaryAsync",
   async (beneficiary) => {
