@@ -12,7 +12,7 @@ const BeneficiaryView = () => {
   }
 
   return (
-    <PageWrapper handleBack={() => navigate("/")}>
+    <PageWrapper handleBack={() => navigate("/manage-beneficiary")}>
       <div className="max-w-md mx-auto p-4 bg-white shadow-md rounded-md">
         <h2 className="text-2xl font-semibold mb-4">Beneficiary Details</h2>
         <p>

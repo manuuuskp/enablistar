@@ -7,17 +7,19 @@ import BeneficiaryList from "./routes/beneficiary/beneficiaryList/BeneficiaryLis
 import store from "./redux/store";
 import "./index.css";
 import Header from "./components/header/Header";
+import Home from "./routes/home/Home";
 
 const App = () => (
   <Provider store={store}>
-    <header>
-      <Header />
-    </header>
-    <main>
-      <Router>
+    <Router>
+      <header>
+        <Header />
+      </header>
+      <main>
         <div className="min-h-screen bg-gray-100 p-4 mt-16">
           <Routes>
-            <Route path="/" element={<BeneficiaryList />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/manage-beneficiary" element={<BeneficiaryList />} />
             <Route path="/add-beneficiary" element={<BeneficiaryForm />} />
             <Route
               path="/edit-beneficiary/:id"
@@ -26,8 +28,8 @@ const App = () => (
             <Route path="/view-beneficiary/:id" element={<BeneficiaryView />} />
           </Routes>
         </div>
-      </Router>
-    </main>
+      </main>
+    </Router>
   </Provider>
 );
 

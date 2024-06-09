@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { editBeneficiary } from "../../beneficiary.slice";
-import { addBeneficiaryAsync } from "../../beneficiary.service";
+import {
+  addBeneficiaryAsync,
+  updateBeneficiaryAsync,
+} from "../../beneficiary.service";
 
 const useBeneficiary = (isEdit, setValue) => {
   const dispatch = useDispatch();
@@ -23,11 +25,11 @@ const useBeneficiary = (isEdit, setValue) => {
 
   const onSubmit = (data) => {
     if (isEdit) {
-      dispatch(editBeneficiary({ ...data, id: parseInt(id) }));
+      dispatch(updateBeneficiaryAsync({ ...data, id: parseInt(id) }));
     } else {
       dispatch(addBeneficiaryAsync({ ...data, id: Date.now() }));
     }
-    navigate("/");
+    navigate("/manage-beneficiary");
   };
 
   return { onSubmit };

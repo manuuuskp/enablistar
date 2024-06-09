@@ -16,7 +16,7 @@ const BeneficiaryForm = ({ isEdit = false }) => {
   const { onSubmit } = useBeneficiary(isEdit, setValue);
 
   return (
-    <PageWrapper handleBack={() => navigate("/")}>
+    <PageWrapper handleBack={() => navigate("/manage-beneficiary")}>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="max-w-md mx-auto p-4 bg-white shadow-md rounded-lg"

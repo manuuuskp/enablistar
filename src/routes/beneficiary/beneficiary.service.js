@@ -49,6 +49,29 @@ export const addBeneficiaryAsync = createAsyncThunk(
   }
 );
 
+export const updateBeneficiaryAsync = createAsyncThunk(
+  "beneficiaries/updateBeneficiaryAsync",
+  async (beneficiary) => {
+    // Simulating a PUT request to add the beneficiary
+    const response = new Promise((resolve) => {
+      setTimeout(() => {
+        const beneFiciaryClone = [...beneficiariesData];
+        const index = beneFiciaryClone.findIndex(
+          (beneficiaryData) => beneficiaryData.id === beneficiary.id
+        );
+        if (index !== -1) {
+          beneFiciaryClone[index] = beneficiary;
+        }
+
+        beneficiariesData = [...beneFiciaryClone];
+        resolve({ data: beneficiary });
+      }, 100);
+    });
+    const data = await response;
+    return data.data;
+  }
+);
+
 export const deleteBeneficiaryAsync = createAsyncThunk(
   "beneficiaries/deleteBeneficiaryAsync",
   async (beneficiary) => {
