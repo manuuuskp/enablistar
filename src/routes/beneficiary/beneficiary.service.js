@@ -1,19 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-// Initial mock data (simulates `beneficiaries.json`)
 let beneficiariesData = [
   {
     id: 1,
-    fullName: "John Doe",
-    address: "123 Main St",
-    country: "USA",
+    fullName: "Sachin Tendulkar",
+    address: "Mumbai",
+    country: "India",
     pincode: "12345",
   },
   {
     id: 2,
-    fullName: "Jane Smith",
-    address: "456 Elm St",
-    country: "Canada",
+    fullName: "Virat Kohli",
+    address: "Delhi",
+    country: "India",
     pincode: "54321",
   },
 ];

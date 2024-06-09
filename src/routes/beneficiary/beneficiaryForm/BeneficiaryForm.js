@@ -28,6 +28,7 @@ const BeneficiaryForm = ({ isEdit = false }) => {
           <input
             {...register("fullName", { required: "Full Name is required" })}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            data-testid="fullname"
           />
           {errors.fullName && (
             <span className="text-red-500 text-sm">
@@ -42,6 +43,7 @@ const BeneficiaryForm = ({ isEdit = false }) => {
           <input
             {...register("address", { required: "Address is required" })}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            data-testid="address"
           />
           {errors.address && (
             <span className="text-red-500 text-sm">
@@ -56,6 +58,7 @@ const BeneficiaryForm = ({ isEdit = false }) => {
           <select
             {...register("country", { required: "Country is required" })}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            data-testid="country"
           >
             <option value="">Select Country</option>
             <option value="USA">USA</option>
@@ -77,6 +80,7 @@ const BeneficiaryForm = ({ isEdit = false }) => {
           <input
             {...register("pincode", { required: "Pincode is required" })}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            data-testid="pincode"
           />
           {errors.pincode && (
             <span className="text-red-500 text-sm">
@@ -86,7 +90,7 @@ const BeneficiaryForm = ({ isEdit = false }) => {
         </div>
         <button
           type="submit"
-          className="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+          className="w-full py-2 px-4 bg-green-600 text-white rounded-md hover:bg-green-700"
         >
           {isEdit ? "Update" : "Add"} Beneficiary
         </button>

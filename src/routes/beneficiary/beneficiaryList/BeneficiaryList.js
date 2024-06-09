@@ -11,6 +11,7 @@ import { IoMdEye } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Toaster from "../../../components/toaster/Toaster";
 import { TOAST_TYPE } from "../../../constants/constants";
+import Breadcrumb from "../../../components/breadcrumb/Breadcrumb";
 
 const BeneficiaryList = () => {
   const { beneficiaries, showToast, onToastClose, handleRemove } =
@@ -32,6 +33,11 @@ const BeneficiaryList = () => {
     ),
     []
   );
+
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "List Of Beneficiaries", href: "/" },
+  ];
 
   const columns = React.useMemo(
     () => [
@@ -72,16 +78,17 @@ const BeneficiaryList = () => {
     getCoreRowModel: getCoreRowModel(),
   });
 
-  console.log("list");
-
   return (
     <div className="mx-auto p-4">
-      <Link
-        to="/add-beneficiary"
-        className="mb-4 inline-block bg-green-500 rounded-full text-white py-2 px-4 hover:bg-green-700"
-      >
-        Add Beneficiary
-      </Link>
+      <div className="flex justify-between">
+        <Breadcrumb items={breadcrumbItems} />
+        <Link
+          to="/add-beneficiary"
+          className="mb-4 inline-block bg-green-500 rounded-full text-white py-2 px-4 hover:bg-green-700"
+        >
+          Add Beneficiary
+        </Link>
+      </div>
       <table className="min-w-full divide-y divide-gray-200 mt-4">
         <thead className="bg-gray-50">
           {table.getHeaderGroups().map((headerGroup) => (
@@ -115,6 +122,11 @@ const BeneficiaryList = () => {
           ))}
         </tbody>
       </table>
+      {beneficiaries.length === 0 && (
+        <div className="flex justify-center mt-8">
+          <h1>Please Add New Beneficiary</h1>
+        </div>
+      )}
       <div>
         {showToast && (
           <Toaster
